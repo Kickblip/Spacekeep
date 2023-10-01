@@ -1166,6 +1166,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1fa181ed45f03e4e8a1c4d587e1fbc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  asteroids:
+  - {fileID: 4413445227303971517, guid: a7a044793a6dcca449c6399246e08e9e, type: 3}
+  outer_boundry: 650
+  inner_boundry: 70
+  generation_density: 0.75
 --- !u!4 &1546644363
 Transform:
   m_ObjectHideFlags: 0
@@ -1286,6 +1291,7 @@ MonoBehaviour:
   speed: 1.05
   mouse_distance_effect: 1
   offset: 0
+  canMove: 1
 --- !u!61 &1580971004
 BoxCollider2D:
   m_ObjectHideFlags: 0
