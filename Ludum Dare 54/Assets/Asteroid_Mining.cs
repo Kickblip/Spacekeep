@@ -5,6 +5,7 @@ public class Asteroid : MonoBehaviour
     public int hp = 100;  // Asteroid HP
     public float explosionForce = 10f;
     public float explosionRadius = 5f;
+    public OreType[] possibleOreTypes;  // Possible ore types to spawn
     public GameObject oreChunkPrefab; // Ore chunk prefab
     public int numberOfChunks = 3;
 
@@ -43,9 +44,17 @@ public class Asteroid : MonoBehaviour
     {
         for (int i = 0; i < numberOfChunks; i++)
         {
-            // Add some ore chunks!
+            // Add an ore chunk!
             GameObject chunk = Instantiate(oreChunkPrefab, transform.position, Quaternion.identity);
             
+            // Assign one of the possible ore types to this chunk
+            OreChunk oreChunk = chunk.GetComponent<OreChunk>();
+            if (oreChunk != null && possibleOreTypes.Length > 0)
+            {
+                int randomIndex = Random.Range(0, possibleOreTypes.Length);
+                oreChunk.oreType = possibleOreTypes[randomIndex];
+            }
+
             // Add some force to make the chunks explode outwards
             Rigidbody2D chunkRb = chunk.GetComponent<Rigidbody2D>();
             if (chunkRb != null)

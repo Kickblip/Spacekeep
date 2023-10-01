@@ -164,5 +164,10 @@ MonoBehaviour:
   hp: 100
   explosionForce: 500
   explosionRadius: 5
+  possibleOreTypes:
+  - {fileID: 11400000, guid: 661386de774854ba9a38bd01dc6f6c42, type: 2}
+  - {fileID: 11400000, guid: b7a73eb14839b4a57b34598c13d1a9b8, type: 2}
+  - {fileID: 11400000, guid: f777926bfa1b743a490acbdd3b9b77c0, type: 2}
+  - {fileID: 11400000, guid: 717e187d410ff4c28be2ab4d333a88b6, type: 2}
   oreChunkPrefab: {fileID: 4413445227303971517, guid: 66fdb19a6e43c4c6380a8e5d5d7dce85, type: 3}
   numberOfChunks: 3
