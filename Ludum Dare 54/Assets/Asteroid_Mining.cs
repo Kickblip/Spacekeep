@@ -5,6 +5,8 @@ public class Asteroid : MonoBehaviour
     public int hp = 100;  // Asteroid HP
     public float explosionForce = 10f;
     public float explosionRadius = 5f;
+    public GameObject oreChunkPrefab; // Ore chunk prefab
+    public int numberOfChunks = 3;
 
     private Rigidbody2D rb;
 
@@ -23,6 +25,7 @@ public class Asteroid : MonoBehaviour
             if (hp <= 0)
             {
                 Debug.Log("Asteroid destroyed");
+                SpawnOreChunks();
                 Destroy(gameObject);
             }
             else
@@ -32,6 +35,24 @@ public class Asteroid : MonoBehaviour
                 float distance = Vector2.Distance(rb.position, explosionCenter);
                 float force = explosionForce / (1 + distance / explosionRadius);
                 rb.AddForce(direction * force, ForceMode2D.Impulse);
+            }
+        }
+    }
+
+    private void SpawnOreChunks()
+    {
+        for (int i = 0; i < numberOfChunks; i++)
+        {
+            // Add some ore chunks!
+            GameObject chunk = Instantiate(oreChunkPrefab, transform.position, Quaternion.identity);
+            
+            // Add some force to make the chunks explode outwards
+            Rigidbody2D chunkRb = chunk.GetComponent<Rigidbody2D>();
+            if (chunkRb != null)
+            {
+                Vector2 randomDirection = Random.insideUnitCircle.normalized;
+                float randomForce = Random.Range(explosionForce / 2f, explosionForce);
+                chunkRb.AddForce(randomDirection * randomForce, ForceMode2D.Impulse);
             }
         }
     }
