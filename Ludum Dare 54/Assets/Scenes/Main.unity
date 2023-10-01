@@ -1148,7 +1148,7 @@ GameObject:
   - component: {fileID: 1546644363}
   - component: {fileID: 1546644362}
   m_Layer: 0
-  m_Name: Astroid Spawning
+  m_Name: Asteroid Spawning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1168,6 +1168,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroids:
   - {fileID: 4413445227303971517, guid: a7a044793a6dcca449c6399246e08e9e, type: 3}
+  - {fileID: 4413445227303971517, guid: 135436f483cfabc44ae3f47ddae1294c, type: 3}
+  - {fileID: 4413445227303971517, guid: 19805bcf87f6c744688424139671023c, type: 3}
+  - {fileID: 4413445227303971517, guid: ec35a3b2923de2540927a09bd51070dc, type: 3}
+  type_spawn_boundrys:
+  - 0.25
+  - 0.5
+  - 0.75
   outer_boundry: 650
   inner_boundry: 70
   generation_density: 0.75
