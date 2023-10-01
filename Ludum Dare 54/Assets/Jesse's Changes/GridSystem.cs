@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class GridSystem : MonoBehaviour
 {
-    [SerializeField] int width;
-    [SerializeField] int height;
+    [SerializeField] public int width;
+    [SerializeField] public int height;
     float tileSize = 0.16f;
     Camera cam;
     SpriteRenderer render;
+    public List<GameObject> items = new List<GameObject>();
 
     void Start()
     {
