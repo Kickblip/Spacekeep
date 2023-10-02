@@ -7,8 +7,8 @@ public class EnemyController : MonoBehaviour
     //ENEMY ATTRIBUTES-------------------------------
     //can modify these on spawn to increase difficulty dynamically
     public float hp = 100;  //Enemy HP
-    public float acceleration = 0.01f; //how fast it can add speed
-    private float maxSpeed = 10; //will stop accelerating once hit
+    public float acceleration = 0.4f; //how fast it can add speed
+    private float maxSpeed = 40; //will stop accelerating once hit
     private float damage = 10; //how much damage the enemy does
     private float pushPower = 50; //how far enemy is pushed when attacking mothership or taking damage from player
 
@@ -20,6 +20,11 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     { 
+        if (hp <= 0) {
+            Debug.Log("Enemy destroyed");
+            Destroy(gameObject);
+        }
+
         if (Mothership != null)
         {
             Vector2 direction = (Mothership.transform.position - transform.position).normalized;
@@ -44,12 +49,6 @@ public class EnemyController : MonoBehaviour
                 PlayerAttributes atr = collision.gameObject.GetComponent<PlayerAttributes>();
                 hp -= atr.damage; //take damage defined for player
                 Debug.Log("Enemy hit by player. HP: " + hp);  //log the current hp
-
-                if (hp <= 0)
-                {
-                    Debug.Log("Enemy destroyed");
-                    Destroy(gameObject);
-                }
             } else { //do damage to mothership
                 MothershipController ctrl = collision.gameObject.GetComponent<MothershipController>();
                 ctrl.hp -= damage;

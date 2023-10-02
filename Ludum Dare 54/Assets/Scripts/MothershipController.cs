@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MothershipController : MonoBehaviour
 {
-    public float hp = 500;
+    public float hp = 1000;
 
     void Update() {
         if (hp <= 0) {
