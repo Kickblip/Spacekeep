@@ -1,8 +1,10 @@
 # Spacekeep - Ludum Dare 54 Game Jam Submission
 
-A spaceship and its mother are stranded and under attack! Exoleechs swarm in hunger. Can you fend them off? Collect materials, manage limited resources, and survive. If you can...
-
 ## [Play on Itch.io](https://alex-d05.itch.io/spacekeep)
+
+A spaceship and its mother are stranded and under attack! Exoleechs swarm in hunger. Can you fend them off? Collect materials, manage limited resources, and survive. Make clever use of your limited inventory space to store resources and attachments to survive an onslaught of alien attackers.
+
+### Theme: [Limited Space](https://ldjam.com/events/ludum-dare/54/)
 
 <div align="center">
 
