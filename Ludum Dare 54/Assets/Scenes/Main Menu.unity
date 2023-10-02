@@ -482,7 +482,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<Controls go Here                            \n\n\n\n\n          >"
+  m_text: 'Controls:
+
+    Mouse - Control Direction
+
+    LMB - Engage Thrusters
+
+    E
+    - Open Inventory/s
+
+
+    Tips:
+
+    Run head first into asteroids until they
+    crack and release the ore hidden inside!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 933456ed6743af148abd66a27847382f, type: 2}
   m_sharedMaterial: {fileID: 2475610946750300532, guid: 933456ed6743af148abd66a27847382f, type: 2}
@@ -509,8 +522,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 46.82
-  m_fontSizeBase: 46.82
+  m_fontSize: 19.2
+  m_fontSizeBase: 19.2
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -521,7 +534,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 22.3
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -545,7 +558,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -18.784882, y: -141.9303, z: -310.14935, w: -137.75587}
+  m_margin: {x: -18.784882, y: -141.9303, z: -307.2876, w: -137.75587}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -680,7 +693,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -276, y: -133}
+  m_AnchoredPosition: {x: -276, y: -109}
   m_SizeDelta: {x: 133.3, y: 49}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1360435928
@@ -1287,7 +1300,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -276, y: 13}
+  m_AnchoredPosition: {x: -276, y: 37}
   m_SizeDelta: {x: 133.3, y: 49}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1783914111
