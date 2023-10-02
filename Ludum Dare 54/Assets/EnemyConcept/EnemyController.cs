@@ -11,6 +11,8 @@ public class EnemyController : MonoBehaviour
     public Vector2 acceleration;
     public GameObject thisEnemy;
 
+    float minDistance = 100f; // You can change this value as needed
+
     List<EnemyController> enemyNeighbors = new List<EnemyController>();
 
     private void Awake()
@@ -187,14 +189,19 @@ public class EnemyController : MonoBehaviour
     {
         if (Target == null) return Vector2.zero; // No target, so don't apply any force
 
-        Vector2 desired = Target.position - transform.position;
-        desired = desired.normalized * EnemySpawner._maxMoveSpeed;
+        Vector2 offset = Target.position - transform.position;
+        float distance = offset.magnitude;
 
-        Vector2 steer = desired - velocity;
-        steer = Vector2.ClampMagnitude(steer, EnemySpawner._maxTurnEffect);
-
-        return steer;
+        if (distance > minDistance)
+        {
+            Vector2 desired = offset.normalized * EnemySpawner._maxMoveSpeed;
+            Vector2 steer = desired - velocity;
+            steer = Vector2.ClampMagnitude(steer, EnemySpawner._maxTurnEffect);
+            return steer;
+        }
+        return Vector2.zero;
     }
+
 
 
 }

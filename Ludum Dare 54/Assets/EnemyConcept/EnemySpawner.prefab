@@ -44,13 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7da10ce557336ada88b19e963b07f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boundSize: {x: 50, y: 50}
+  boundSize: {x: 1000, y: 1000}
   alignment: 1
-  seperation: 0.457
+  seperation: 1
   cohesian: 1
-  awarenessRadius: 2
-  avoidanceRadius: 0.543
-  maxMoveSpeed: 10
-  maxTurnEffect: 1
+  awarenessRadius: 50
+  avoidanceRadius: 1
+  maxMoveSpeed: 100
+  maxTurnEffect: 5
   numEnemies: 10
   enemyPrefab: {fileID: 3136014913036604866, guid: fa22b92fb764e2892b276ec27523c50b, type: 3}
