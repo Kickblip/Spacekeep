@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Inventory
   - InInventory
+  - Mothership
   layers:
   - Default
   - TransparentFX

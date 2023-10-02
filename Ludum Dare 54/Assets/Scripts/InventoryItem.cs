@@ -14,9 +14,12 @@ public class InventoryItem : MonoBehaviour
     Vector3 startPosition;
     bool hasHitItemCollider = false;
     GameObject hitItem = null;
+    public string identifier = "";
     public void Start() {
         cam = GameObject.Find("Main Camera").GetComponent<Camera>();
     }
+    //used to check if item will be out of inventory on edges
+    [SerializeField] Vector2 sizing = new Vector2(1,1);
 
     public void OnMouseDown() {
         //Debug.Log("clicked");
@@ -30,29 +33,29 @@ public class InventoryItem : MonoBehaviour
         }
         startPosition = transform.position;
     }
+    /*
+        I think this whole inventory system would have been better if i used individual grid cells rather than one big one
+        That way i wouldn't have to mess with coordinates that much and occupied cells would just be a mask array
+        But maybe someday i'll get around to making it better
+    */
 
     public void OnMouseUp() {
         clicked = false;
         if (closestInventory != null) {
             
-            bool occupied = false;
+            //bool occupied = false;
             GameObject[] gos = GameObject.FindGameObjectsWithTag("InInventory");
 
             float scale = ((closestInventory.transform.localScale.x)/10)*1.6f;
-            Vector2 cellCoords = new Vector2(
+            Vector2 rawCoords = new Vector2(
                 Mathf.Clamp(grid.getGridInt().x,0,grid.width-1),
                 Mathf.Clamp(grid.getGridInt().y,0,grid.height-1)
-            )*scale;
-            Vector3 newPosition = new Vector3(closestInventory.transform.position.x+cellCoords.x+(scale/2),closestInventory.transform.position.y+cellCoords.y+(scale/2),transform.position.z);
-/*
-            foreach(GameObject go in gos) {
-                if (Vector3.Distance(go.transform.position,newPosition) < 0.1) {
-                    occupied = true;
-                }
-            }
-            */
+            );
 
-            if (!hasHitItemCollider) {
+            Vector2 cellCoords = rawCoords*scale;
+            Vector3 newPosition = new Vector3(closestInventory.transform.position.x+cellCoords.x+(scale/2),closestInventory.transform.position.y+cellCoords.y+(scale/2),transform.position.z);
+
+            if (!hasHitItemCollider && (sizing.x+rawCoords.x <= grid.width) && (rawCoords.y >= sizing.y-1)) {
                 transform.position = newPosition;
                 transform.SetParent(closestInventory.transform,true);
                 gameObject.tag = "InInventory";
