@@ -6,18 +6,18 @@ public class EnemySpawning : MonoBehaviour
 {
     float enemyCount = 1; //how many enemies are spawned each cycle (will increase over time)
 
-    float cycleTime = 30; //cycle time at start, will slowly decrease
+    float cycleTime = 40; //cycle time at start, will slowly decrease
     float curCycleTime = 0;
     [SerializeField] GameObject enemy;
 
     void Update()
     {
         if (enemyCount < 3) {
-            enemyCount += 0.1f*Time.deltaTime;
+            enemyCount += 0.05f*Time.deltaTime;
         }
 
         if (cycleTime > 5) {
-            cycleTime -= 0.1f*Time.deltaTime;
+            cycleTime -= 0.05f*Time.deltaTime;
         }
 
         //Debug.Log(enemyCount + " | " + cycleTime);
