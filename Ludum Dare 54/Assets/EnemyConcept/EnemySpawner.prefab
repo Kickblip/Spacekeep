@@ -48,7 +48,7 @@ MonoBehaviour:
   alignment: 1
   seperation: 1
   cohesian: 1
-  awarenessRadius: 50
+  awarenessRadius: 100
   avoidanceRadius: 1
   maxMoveSpeed: 100
   maxTurnEffect: 5

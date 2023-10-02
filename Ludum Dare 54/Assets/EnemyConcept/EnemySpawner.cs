@@ -13,9 +13,9 @@ public class EnemySpawner : MonoBehaviour
     [Range(0, 1)]
     public float cohesian = 1f;
 
-    public float awarenessRadius = 5f;
+    public float awarenessRadius = 100f;
     [Range(0, 1)]
-    public float avoidanceRadius = 10f;
+    public float avoidanceRadius = 20f;
     public float maxMoveSpeed = 20f;
     public float maxTurnEffect = 5f;
 
