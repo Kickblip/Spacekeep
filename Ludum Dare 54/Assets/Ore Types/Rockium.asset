@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Rockium
   m_EditorClassIdentifier: 
   oreName: Rockium
-  oreSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  oreSprite: {fileID: 21300000, guid: 645cd484ac033b943927aa749ac46420, type: 3}
   oreColor: {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 1}

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Nexinite
   m_EditorClassIdentifier: 
   oreName: Nexinite
-  oreSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  oreSprite: {fileID: 21300000, guid: 888cefeb85e018c499d9e30a2e9cd0c6, type: 3}
   oreColor: {r: 0, g: 0.7924528, b: 0.07266175, a: 1}

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Exometal
   m_EditorClassIdentifier: 
   oreName: Exometal
-  oreSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  oreSprite: {fileID: 21300000, guid: 6a023b6712b9cbf4288abfc429482c36, type: 3}
   oreColor: {r: 0.6037736, g: 0, b: 0, a: 1}

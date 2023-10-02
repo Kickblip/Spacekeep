@@ -11,8 +11,8 @@ public class OreChunk : MonoBehaviour
             var spriteRenderer = GetComponent<SpriteRenderer>();
             if (spriteRenderer != null)
             {
-                //spriteRenderer.sprite = oreType.oreSprite;
-                spriteRenderer.color = oreType.oreColor;
+                spriteRenderer.sprite = oreType.oreSprite;
+                // spriteRenderer.color = oreType.oreColor;
             }
             else
             {

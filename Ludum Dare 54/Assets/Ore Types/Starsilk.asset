@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Starsilk
   m_EditorClassIdentifier: 
   oreName: Starsilk
-  oreSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  oreSprite: {fileID: 21300000, guid: 0b831273ae047ac4798354c5b933e638, type: 3}
   oreColor: {r: 1, g: 0.8674295, b: 0, a: 1}
