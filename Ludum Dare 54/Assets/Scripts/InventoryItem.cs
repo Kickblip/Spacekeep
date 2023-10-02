@@ -29,6 +29,7 @@ public class InventoryItem : MonoBehaviour
             if (grid != null) {
                 grid.items.Remove(gameObject);
                 Debug.Log("Item removed: " + gameObject.name);
+                onRemoved();
             }
         }
         startPosition = transform.position;
@@ -61,6 +62,7 @@ public class InventoryItem : MonoBehaviour
                 gameObject.tag = "InInventory";
                 grid.items.Add(gameObject);
                 Debug.Log("Item added: " + gameObject.name);
+                onPlaced();
                 return;
             }
         }
@@ -74,6 +76,10 @@ public class InventoryItem : MonoBehaviour
         }
         hasHitItemCollider = false;
     }
+
+    public virtual void onPlaced() {}
+
+    public virtual void onRemoved() {}
 
     void Update()
     {
