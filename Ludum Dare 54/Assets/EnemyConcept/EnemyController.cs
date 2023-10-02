@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
     public Vector2 acceleration;
     public GameObject thisEnemy;
 
-    float minDistance = 100f; // You can change this value as needed
+    float minDistance = 1000f; // You can change this value as needed
 
     List<EnemyController> enemyNeighbors = new List<EnemyController>();
 
