@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
-    public int hp = 100;  // Asteroid HP
+    public float hp = 100;  // Asteroid HP
     public float explosionForce = 10f;
     public float explosionRadius = 5f;
     public OreType[] possibleOreTypes;  // Possible ore types to spawn
@@ -21,7 +21,7 @@ public class Asteroid : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            hp -= 10;
+            hp -= collision.gameObject.GetComponent<PlayerAttributes>().damage;
             Debug.Log("Asteroid hit by player. HP: " + hp);  // log the current hp
 
             if (hp <= 0)
