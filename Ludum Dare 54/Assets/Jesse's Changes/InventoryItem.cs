@@ -12,6 +12,8 @@ public class InventoryItem : MonoBehaviour
     Camera cam;
     bool canBeClicked = true;
     Vector3 startPosition;
+    bool hasHitItemCollider = false;
+    GameObject hitItem = null;
     public void Start() {
         cam = GameObject.Find("Main Camera").GetComponent<Camera>();
     }
@@ -42,14 +44,15 @@ public class InventoryItem : MonoBehaviour
                 Mathf.Clamp(grid.getGridInt().y,0,grid.height-1)
             )*scale;
             Vector3 newPosition = new Vector3(closestInventory.transform.position.x+cellCoords.x+(scale/2),closestInventory.transform.position.y+cellCoords.y+(scale/2),transform.position.z);
-
+/*
             foreach(GameObject go in gos) {
                 if (Vector3.Distance(go.transform.position,newPosition) < 0.1) {
                     occupied = true;
                 }
             }
+            */
 
-            if (occupied == false) {
+            if (!hasHitItemCollider) {
                 transform.position = newPosition;
                 transform.SetParent(closestInventory.transform,true);
                 gameObject.tag = "InInventory";
@@ -66,6 +69,7 @@ public class InventoryItem : MonoBehaviour
         } else {
             transform.SetParent(null, true);
         }
+        hasHitItemCollider = false;
     }
 
     void Update()
@@ -76,17 +80,28 @@ public class InventoryItem : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D col) {
-        if (col.name == "Grid") {
-            //Debug.Log("Inventory enter");
+        if (col.tag == "Inventory") {
+            Debug.Log("Enter: " + col.name);
             closestInventory = col.gameObject;
             grid = closestInventory.GetComponent<GridSystem>();
+        } else if (col.tag == "InInventory") {
+            hasHitItemCollider = true;
+            Debug.Log("HIT ITEM: " + col.name);
+            hitItem = col.gameObject;
         }
     }
 
     private void OnTriggerExit2D(Collider2D col) {
-        if (col.name == "Grid") {
-            closestInventory = null; 
-            //Debug.Log("Inventory exit");
+        if (col.tag == "Inventory") {
+            if (col.gameObject == closestInventory) {
+                closestInventory = null; 
+                Debug.Log("Exit: " + col.name);
+            }
+        } else if (col.tag == "InInventory") {
+            if (col.gameObject == hitItem) {
+                hasHitItemCollider = false;
+                Debug.Log("OUT OF ITEM: " + col.name);
+            }
         }
     }
 }
