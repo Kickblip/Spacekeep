@@ -2,6 +2,8 @@
 
 A spaceship and its mother are stranded and under attack! ExoLeechs swarm in hunger. Can you fend them off? Collect materials, manage limited resources, and survive. If you can...
 
+## [Play on Itch.io](https://alex-d05.itch.io/spacekeep)
+
 <div align="center">
 
 <img src="https://github.com/Kickblip/LDJAM-54/assets/54160850/2515d678-3ebe-4596-aa47-a11b07bf2a8a" width="450" height="auto" />
