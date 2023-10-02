@@ -1,79 +1,48 @@
 using UnityEngine;
-using System.Collections;
 
 public class BoidBehaviour : MonoBehaviour
 {
-    // Reference to the controller.
     public BoidController controller;
-
-    // Options for animation playback.
     public float animationSpeedVariation = 0.2f;
-
-    // Random seed.
-    float noiseOffset;
-
-    // Caluculates the separation vector with a target.
-    Vector3 GetSeparationVector(Transform target)
-    {
-        var diff = transform.position - target.transform.position;
-        var diffLen = diff.magnitude;
-        var scaler = Mathf.Clamp01(1.0f - diffLen / controller.neighborDist);
-        return diff * (scaler / diffLen);
-    }
+    public float desiredRadius = 5.0f;  // Set your desired radius here
+    public float moveSpeed = 2.0f;      // Set your desired movement speed here
 
     void Start()
     {
-        noiseOffset = Random.value * 10.0f;
 
-        var animator = GetComponent<Animator>();
-        if (animator)
-            animator.speed = Random.Range(-1.0f, 1.0f) * animationSpeedVariation + 1.0f;
     }
 
     void Update()
     {
-        var currentPosition = transform.position;
-        var currentRotation = transform.rotation;
+        // Ensure the controller is assigned
+        if (controller == null) return;
 
-        // Current velocity randomized with noise.
-        var noise = Mathf.PerlinNoise(Time.time, noiseOffset) * 2.0f - 1.0f;
-        var velocity = controller.velocity * (1.0f + noise * controller.velocityVariation);
+        // Get the position of the controller and the current object
+        Vector3 controllerPos = controller.transform.position;
+        Vector3 pos = transform.position;
 
-        // Initializes the vectors.
-        var separation = Vector3.zero;
-        var alignment = controller.transform.forward;
-        var cohesion = controller.transform.position;
+        // Calculate the current distance from the controller
+        float distance = Vector3.Distance(pos, controllerPos);
 
-        // Looks up nearby boids.
-        var nearbyBoids = Physics.OverlapSphere(currentPosition, controller.neighborDist, controller.searchLayer);
-
-        // Accumulates the vectors.
-        foreach (var boid in nearbyBoids)
+        // Calculate the direction towards or away from the controller
+        Vector3 direction;
+        if (distance > desiredRadius)
         {
-            if (boid.gameObject == gameObject) continue;
-            var t = boid.transform;
-            separation += GetSeparationVector(t);
-            alignment += t.forward;
-            cohesion += t.position;
+            // If outside the desired radius, move towards the controller
+            direction = (controllerPos - pos).normalized;
+        }
+        else if (distance < desiredRadius)
+        {
+            // If inside the desired radius, move away from the controller
+            direction = (pos - controllerPos).normalized;
+        }
+        else
+        {
+            // If already at the desired radius, no movement is needed
+            return;
         }
 
-        var avg = 1.0f / nearbyBoids.Length;
-        alignment *= avg;
-        cohesion *= avg;
-        cohesion = (cohesion - currentPosition).normalized;
-
-        // Calculates a rotation from the vectors.
-        var direction = separation + alignment + cohesion;
-        var rotation = Quaternion.FromToRotation(Vector3.forward, direction.normalized);
-
-        // Applys the rotation with interpolation.
-        if (rotation != currentRotation)
-        {
-            var ip = Mathf.Exp(-controller.rotationCoeff * Time.deltaTime);
-            transform.rotation = Quaternion.Slerp(rotation, currentRotation, ip);
-        }
-
-        // Moves forward.
-        transform.position = currentPosition + transform.forward * (velocity * Time.deltaTime);
+        // Update the position based on the direction and move speed
+        transform.position += direction * moveSpeed * Time.deltaTime;
     }
 }

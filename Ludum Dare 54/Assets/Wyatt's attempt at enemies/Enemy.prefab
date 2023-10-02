@@ -163,3 +163,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: -776467341119952876, guid: 8a22ba5de4b244c93a2fec46ef28f02a, type: 3}
   animationSpeedVariation: 0.2
+  desiredRadius: 10
+  moveSpeed: 20
