@@ -24,7 +24,7 @@ public class Asteroid_Field_Generator : MonoBehaviour
                 float distance_from_center = Mathf.Sqrt(Mathf.Pow(random_position.x, 2) + Mathf.Pow(random_position.y, 2));
                 if (distance_from_center < outer_boundry && distance_from_center > inner_boundry)
                 {
-                    Instantiate(asteroids[selectType(distance_from_center)], random_position, transform.rotation); //change to be random rotation
+                    Instantiate(asteroids[selectType(distance_from_center)], random_position, Quaternion.Euler(new Vector3(0,0,Random.Range(0,360)))); //change to be random rotation
                     good_gen_pos = true;
                 }
             }
