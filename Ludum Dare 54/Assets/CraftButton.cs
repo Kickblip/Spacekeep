@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class CraftingRecipe : MonoBehaviour
 {
-    //[Header("Name must be capitalized")]
+    [Header("Crafting Resources")]
     [SerializeField] public string[] resources;
     [SerializeField] public int[] amounts;
+
+    [Header("Crafting Result")]
+    [SerializeField] GameObject createdObject;
+    [SerializeField] Vector2 coords;
     public void Click() {
         //Debug.Log(hasEnough());
         //Debug.Log(counts()[0]);
@@ -33,6 +37,7 @@ public class CraftingRecipe : MonoBehaviour
                     }
                 }
             }
+            Instantiate(createdObject, new Vector3(transform.position.x+coords.x,transform.position.y+coords.y, -5), Quaternion.identity);
         }
     }
 
