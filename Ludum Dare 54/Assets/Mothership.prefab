@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 43bdeb341a7e7634b8506f8758eb536f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -97,9 +97,10 @@ GameObject:
   - component: {fileID: 9118733864070617596}
   - component: {fileID: 9011288506859631925}
   - component: {fileID: 3421731015605558480}
+  - component: {fileID: 7402014795593041653}
   m_Layer: 0
   m_Name: Mothership
-  m_TagString: Untagged
+  m_TagString: Mothership
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -248,3 +249,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notificationObject: {fileID: 0}
   notificationHeight: 1
+--- !u!114 &7402014795593041653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6383697493470868200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f31a81afddd12e94d91840610540cf16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 500

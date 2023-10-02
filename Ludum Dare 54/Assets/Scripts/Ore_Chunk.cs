@@ -8,6 +8,10 @@ public class OreChunk : MonoBehaviour
     {
         if (oreType != null)
         {
+            var itemScript = GetComponent<InventoryItem>();
+
+            itemScript.identifier = oreType.oreName;
+
             var spriteRenderer = GetComponent<SpriteRenderer>();
             if (spriteRenderer != null)
             {
