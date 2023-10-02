@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MothershipController : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class MothershipController : MonoBehaviour
         if (hp <= 0) {
             Debug.Log("Mothership Destroyed!");
             Destroy(gameObject);
+            SceneManager.LoadScene(3);
         }
     }
 }
