@@ -9,9 +9,14 @@ public class Spaceship_Movement : MonoBehaviour
     public float mouse_distance_effect;
     public float offset;
     //Private
+    private AudioSource hum;
     private Vector2 mouse_position;
+    private float engine_slow_timer = 0;
     public bool canMove = true; //public variable to disable movement
-
+    private void Start()
+    {
+        hum = GetComponent<AudioSource>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -30,7 +35,32 @@ public class Spaceship_Movement : MonoBehaviour
                 Vector3 targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
                 float angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
                 transform.rotation = Quaternion.AngleAxis(angle + offset, Vector3.forward);
-            }  
+            }
+            //manage hum sound
+            if (Input.GetMouseButtonDown(0))
+            {
+                hum.Play();
+                engine_slow_timer = 2;
+                hum.volume = 1;
+            }
+            else if (!Input.GetMouseButton(0))
+            {
+                if (engine_slow_timer == 2)
+                {
+                    engine_slow_timer = 1;
+                }
+                else if (engine_slow_timer < 2 && engine_slow_timer > 0)
+                {
+                    engine_slow_timer -= Time.deltaTime;
+                    hum.volume -= .1f;
+                }
+                else if (engine_slow_timer < 0)
+                {
+                    hum.Stop();
+                    engine_slow_timer = 2;
+                    hum.volume = 1;
+                }
+            }
         }
     }
 }
